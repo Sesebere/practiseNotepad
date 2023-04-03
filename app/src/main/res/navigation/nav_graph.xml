@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/noteHome">
+
+    <fragment
+        android:id="@+id/noteHome"
+        android:name="com.example.practice01_noteapp.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_noteHome_to_noteScreen"
+            app:destination="@id/noteScreen" />
+        <action
+            android:id="@+id/action_noteHome_to_addNoteFragment"
+            app:destination="@id/addNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteScreen"
+        android:name="com.example.practice01_noteapp.noteScreen"
+        android:label="fragment_note_screen"
+        tools:layout="@layout/fragment_note_screen" >
+        <argument
+            android:name="noteTitleData"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="Unknown" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.example.practice01_noteapp.AddNoteFragment"
+        android:label="fragment_add_note"
+        tools:layout="@layout/fragment_add_note" >
+        <action
+            android:id="@+id/action_addNoteFragment_to_noteHome"
+            app:destination="@id/noteHome" />
+    </fragment>
+</navigation>
